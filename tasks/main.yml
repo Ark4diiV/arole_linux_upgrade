@@ -1,0 +1,8 @@
+---
+- name: Upgrade Packages
+  ansible.builtin.apt:
+    update_cache: true
+    upgrade: dist
+    autoclean: true
+    autoremove: true
+    clean: true
