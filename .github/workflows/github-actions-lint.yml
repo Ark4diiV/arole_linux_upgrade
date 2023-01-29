@@ -1,3 +1,4 @@
+---
 name: Linter
 run-name: ${{ github.actor }} is testing out Ansible Role
 on: [push]
@@ -7,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install Ansible modules
-        run:  |
+        run: |
           sudo apt-get update
           sudo apt-get install python3-pip -y
           pip3 install ansible ansible-lint yamllint molecule
