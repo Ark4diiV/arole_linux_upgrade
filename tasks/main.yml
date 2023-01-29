@@ -6,3 +6,7 @@
     autoclean: true
     autoremove: true
     clean: true
+
+- name: Upgrade Monitoring Packages
+  ansible.builtin.import_tasks: upgrade_monitoring.yml
+  when: vpn_role == "main

@@ -1,0 +1,53 @@
+---
+- name: Prometheus stop
+  ansible.builtin.systemd:
+    name: prometheus.service
+    state: stopped
+
+- name: Grafana stop
+  ansible.builtin.systemd:
+    name: grafana.service
+    state: stopped
+
+- name: Upgrade Docker image Prometheus
+  community.docker.docker_container:
+    name: prometheus
+    image: prom/prometheus:latest
+    state: stopped
+    pull: true
+    recreate: true
+    ports:
+      - 172.16.0.1:9090:9090
+    volumes:
+      - /opt/prometheus:/etc/prometheus
+      - /opt/prometheus_data:/prometheus
+
+- name: Upgrade Docker image Grafana
+  community.docker.docker_container:
+    name: grafana
+    image: grafana/grafana:latest
+    state: stopped
+    pull: true
+    recreate: true
+    ports:
+      - 172.16.0.1:3000:3000
+    volumes:
+      - /opt/grafana:/var/lib/grafana
+
+- name: Prometheus start
+  ansible.builtin.systemd:
+    name: prometheus.service
+    state: started
+
+- name: Grafana start
+  ansible.builtin.systemd:
+    name: grafana.service
+    state: started
+
+- name: Docker prune
+  community.docker.docker_prune:
+    containers: true
+    images: true
+    networks: true
+    volumes: true
+    builder_cache: true
