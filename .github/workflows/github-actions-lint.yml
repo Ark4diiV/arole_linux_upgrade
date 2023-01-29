@@ -1,5 +1,5 @@
 ---
-name: Linter
+name: Syntax
 run-name: ${{ github.actor }} is testing out Ansible Role
 on: [push]
 jobs:
@@ -12,5 +12,5 @@ jobs:
           sudo apt-get update
           sudo apt-get install python3-pip -y
           pip3 install ansible ansible-lint yamllint molecule
-      - name: Test Ansible role
+      - name: Molecule test
         run: molecule test 
