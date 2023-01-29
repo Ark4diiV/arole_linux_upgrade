@@ -5,5 +5,5 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run: apt-get update && apt-get install python pyton3-pip -y && pip3 install ansible ansible-lint yamllint molecule
+      - run: sudo apt-get update && sudo apt-get install python pyton3-pip -y && pip3 install ansible ansible-lint yamllint molecule
       - run: molecule test
