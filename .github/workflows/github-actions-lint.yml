@@ -2,7 +2,7 @@ name: Linter
 run-name: ${{ github.actor }} is testing out Ansible Role
 on: [push]
 jobs:
-  Environment Preparation:
+  Environment-Preparation:
     runs-on: ubuntu-20.04
     steps:
       - run: sudo apt-get update && sudo apt-get install python3 python3-pip -y && pip3 install ansible ansible-lint yamllint molecule
