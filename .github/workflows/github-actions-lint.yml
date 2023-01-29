@@ -10,9 +10,5 @@ jobs:
           sudo apt-get update
           sudo apt-get install python3-pip -y
           pip3 install ansible ansible-lint yamllint molecule
-  lint:
-    runs-on: ubuntu-20.04
-    steps:
       - name: Test Ansible role
-        run: molecule test
-    
+        run: molecule test 
