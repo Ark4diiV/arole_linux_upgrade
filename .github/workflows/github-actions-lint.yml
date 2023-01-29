@@ -1,9 +1,10 @@
 name: Linter
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+run-name: ${{ github.actor }} is testing out Ansible Role
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  Environment Preparation:
     runs-on: ubuntu-20.04
     steps:
-      - run: sudo apt-get update && sudo apt-get install python python3-pip -y && pip3 install ansible ansible-lint yamllint molecule
-      - run: molecule test
+      - run: sudo apt-get update && sudo apt-get install python3 python3-pip -y && pip3 install ansible ansible-lint yamllint molecule
+      - run: pwd
+      - run: ls -hal
