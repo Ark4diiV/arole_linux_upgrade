@@ -2,7 +2,7 @@ name: Linter
 run-name: ${{ github.actor }} is testing out Ansible Role
 on: [push]
 jobs:
-  pre-task:
+  linter:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
