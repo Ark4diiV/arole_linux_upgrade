@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Ark4diiV
-  description: Upgrade Linux server
+  description: This role will upgrade all packages from connected repositories.
   company: NoName
   license: MIT
   role_name: arole_linux_upgrade
